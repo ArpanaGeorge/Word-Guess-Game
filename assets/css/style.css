@@ -24,7 +24,7 @@ body{
 p{
     font-size: 30px;
     color: wheat;
-    clear: both;
+    /* clear: both; */
 }
 
 button{
@@ -39,6 +39,13 @@ button{
     margin: 5px 5px; 
 }
 
+button:hover {background-color:red;}
+
+button:active {
+  background-color: #8e3e5f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 #result{
     /* color:red; */
     font-size: 50 px;
@@ -47,15 +54,6 @@ button{
     /* border: red solid 10px;
     margin: 0px 600px; */
 }
-
-/* #hangedResult{
-    color:red;
-    font-size: 50 px;
-    background-color: rgb(255, 0, 128);
-    margin: 0px 300px;
-    /* border: red solid 10px;
-    margin: 0px 600px; */
-} */
 
 #images{
     width: 10%;

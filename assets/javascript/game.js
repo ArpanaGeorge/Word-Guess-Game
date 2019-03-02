@@ -24,6 +24,7 @@ function startGame()
     //####Setting initial values on start of each game
     guesses.innerHTML = 10;
     win.innerHTML = wins;
+    result.style.opacity = "0";
 
     //######Calling randomStringArray for genereating random letters in an array
     var machineRandomString = randomStringfunction();
@@ -100,7 +101,7 @@ function startGame()
         //########Lose Condition - Giving alert you lose when guesses remaining = 0
         if(guessesRem === 0)
         {
-            //alert("You are hanged. Press button to start playing again");
+            result.style.opacity = "1";
             result.innerHTML = "You are hanged. Press button to start playing again";
             result.style.backgroundColor = "red";
             result.style.color = "yellow";
@@ -111,7 +112,7 @@ function startGame()
         //########Win Condition - Giving alert you win when machineRandomString === correctWordString
         if( machineRandomString === correctWordString)
          {
-             //alert("You Win a point. Press button to start playing again");
+            result.style.opacity = "1";
              result.innerHTML = "You Win a point. Press button to start playing again";
              guessesRem = 10;
             wins++;
