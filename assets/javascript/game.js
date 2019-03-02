@@ -117,6 +117,7 @@ function startGame()
              result.innerHTML = "You Win a point. Press button to start playing again";
              guessesRem = 10;
             wins++;
+            win.innerHTML = wins;
             guessedLetters.innerHTML = blank;
             result.style.backgroundColor = "yellow";
             result.style.color = "red";
