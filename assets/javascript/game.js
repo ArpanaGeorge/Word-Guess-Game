@@ -107,6 +107,7 @@ function startGame()
             result.style.color = "yellow";
             guessesRem = 10;
             guessedLetters.innerHTML = blank;
+            images.src = "assets/images/hanged.jfif "
         }
 
         //########Win Condition - Giving alert you win when machineRandomString === correctWordString
