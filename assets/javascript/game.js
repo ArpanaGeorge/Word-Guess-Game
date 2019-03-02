@@ -54,17 +54,29 @@ function startGame()
         var flag = 0;//####Variable will be set to 1 if the guessed letter is correct one
         var blank = "";
         var pressedLetter = event.key.toLowerCase();
+        var checkDuplicate=0;
         //alert(pressedLetter);
-        //####Pushing each pressed letter to pressedletter array. Then converted it to string 
+        //####Checking if pressed letter is a duplicate
+        for(var i=0;i<pressedLetterArray.length;i++)
+        {
+            if(pressedLetterArray[i]===pressedLetter)
+            {
+                checkDuplicate = 1;
+            }
+        }
+        //####Pushing non-duplicate pressed letter to pressedletter array. Then converted it to string 
         // and displayed it as Letters Already Guessed
+        if(checkDuplicate === 0)
+        {
         pressedLetterArray.push(pressedLetter);
+        }
         pressedLetterString = pressedLetterArray.join("");
         guessedLetters.innerHTML = pressedLetterString;
         //#########Checking if the guessed letter is correct by comparing with each letter in random array
         console.log("pressedLetter"+pressedLetter);
         machinerandomarray.forEach(function (item,index)
         {
-            console.log("item n index -" +item +index);
+            //console.log("item n index -" +item +index);
             
             if (pressedLetter === item) 
             {
@@ -78,7 +90,7 @@ function startGame()
         
         });
         //########Decrementing remaining guesses when guessed letter goes wrong
-        if (flag===0)
+        if (flag===0 && checkDuplicate ===0)
         {
             guessesRem--;
             guesses.innerHTML = guessesRem;
@@ -90,6 +102,8 @@ function startGame()
         {
             //alert("You are hanged. Press button to start playing again");
             result.innerHTML = "You are hanged. Press button to start playing again";
+            result.style.backgroundColor = "red";
+            result.style.color = "yellow";
             guessesRem = 10;
             guessedLetters.innerHTML = blank;
         }
@@ -102,19 +116,32 @@ function startGame()
              guessesRem = 10;
             wins++;
             guessedLetters.innerHTML = blank;
+            result.style.backgroundColor = "yellow";
+            result.style.color = "red";
             if(correctWordString === "flute")
-            Img.src = "assets/images/flute.jfif "
+            {
+                images.src = "assets/images/flute.jfif "
+            }
             if(correctWordString === "guitar")
-            Img.src = "assets/images/guitar.jfif "
+            {
+                images.src = "assets/images/guitar.jfif "
+            }
             if(correctWordString === "violin")
-            Img.src = "assets/images/violin.jfif "
+            {
+                images.src = "assets/images/violin.jfif "
+            }
             if(correctWordString === "piano")
-            Img.src = "assets/images/piano.jfif "
+            {
+                images.src = "assets/images/piano.jfif "
+            }
             if(correctWordString === "saxophones")
-            Img.src = "assets/images/saxo.jfif "
+            {
+                images.src = "assets/images/saxo.jfif "
+            }
             if(correctWordString === "xylophone")
-            Img.src = "assets/images/xylo.jfif "
-
+            {
+                images.src = "assets/images/xylo.jfif "
+            }
          }
     
     }
